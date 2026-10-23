@@ -23,15 +23,20 @@ TradeBot brings historical data, strategy evaluation, experimental learning, por
 
 The engineering challenge is the interaction between these responsibilities. A change in management behavior can change the outcome learned at entry; changing that target can invalidate earlier data and models. [Follow the complete research path](docs/system-walkthrough.md).
 
-## Three engineering results
+## Six implemented engineering achievements
 
-**Compatible research data.** Historical targets were rebuilt under the current execution contract. The saved audit reconciles records and retains unresolved outcomes explicitly, keeping the meaning of the training data aligned with the executor.
+| Achievement | What was built and checked |
+|---|---|
+| **Continuous state** | Positions, reservations and cash carry across research windows; selected split-run results match whole-run results. |
+| **Reconstructable accounting** | Receipts reconstruct simulated cash and preserve the journal across a tested interruption/restart. |
+| **Compatible research data** | Targets are bound to execution and management context; the saved audit covers 405,458 modelled action rows. |
+| **Durable model completion** | Six interruption points check recovery around fitting, verified saving and completion. |
+| **Evidence-dependent admission** | Training, evaluation and authorization have separate meanings; unsupported admission is rejected in selected checks. |
+| **Behavior-preserving changes** | Eight baseline-comparison scenarios preserve outputs and byte-identical execution journals. |
 
-**Durable model completion.** Six interruption tests exercise the boundary between training, saving and committing a model. Supported recovery restores the same verified artifact and predictions without repeating a completed fit.
+The platform also includes data-quality gates, targeted history recovery, resource leases, SQLite workflow memory, large-artifact storage, operator reporting and guarded file replacement. The [20-capability register](docs/implemented-capabilities.md) connects each mechanism to its business relevance and evidence level.
 
-**Evidence-based model admission.** Training completion, evaluation and authorization have separate states. Missing or incompatible evidence produces a recorded rejection rather than an unsupported approval.
-
-[Detailed engineering cases](docs/engineering-case-studies.md) · [Architecture and contracts](docs/architecture.md)
+[Detailed engineering cases](docs/engineering-case-studies.md) · [Evidence reference](docs/achievement-evidence.md) · [Architecture and contracts](docs/architecture.md)
 
 ## Development across interacting systems
 
@@ -50,7 +55,7 @@ python -B -m unittest discover -s demo -p "test_*.py" -v
 
 [Demo guide](demo/README.md) · [Current research status](docs/project-status.md)
 
-TradeBot is a private research implementation with a public engineering showcase. The public example has its own verification scope. Stable trading profitability remains unproven; detailed research and operational boundaries are documented in [verification](docs/verification.md).
+Explore the architecture and recorded engineering results in this public showcase of the private research platform. [Research status and verification scope](docs/verification.md) documents the evidence behind each claim.
 
 ## Discuss a software system
 
