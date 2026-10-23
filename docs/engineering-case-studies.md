@@ -2,6 +2,8 @@
 
 These three cases describe the private engineering acceptance of 20 October 2026. They explain requirements, decisions and verification without exposing trading rules or internal artifacts. [Evidence boundaries](verification.md) apply throughout: private tests are not publicly reproducible from this repository.
 
+![Three engineering cases connect each problem to a solution, verification and specific result](../assets/engineering-challenges.svg)
+
 ## 1. When an unchanged action no longer has a compatible label
 
 ### Problem and consequence

@@ -54,3 +54,7 @@ ChatGPT and Codex assist analysis and software development. The project also con
 ## Verified scope and remaining limits
 
 Data preparation, compatibility checks, causal execution, accounting and supported recovery paths have selected regression evidence. Learned entry quality and position-management advantage remain experimental or NOT VERIFIED. The public presentation contains no runtime access and does not reproduce the private implementation. See [verification](verification.md) and [current status](project-status.md).
+
+## System overview
+
+For the full feedback path and its relevance to other software, read the [system walkthrough](system-walkthrough.md). The [overview diagram](../assets/system-map.svg) complements the detailed architecture above; arrows describe conceptual dependencies, not a trace of a new live run.

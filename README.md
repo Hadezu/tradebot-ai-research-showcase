@@ -1,43 +1,57 @@
-# TradeBot — building a complex product with AI
+# TradeBot — research, simulation and model evaluation
 
-**Private research project · Active development**
+**A connected platform for investigating decisions, carrying portfolio state and recovering complex research workflows.**
 
-I am building TradeBot to investigate whether software can learn to make better trading decisions. It studies historical markets, compares possible actions and tests them with virtual money, costs and risk limits.
+TradeBot brings historical data, strategy evaluation, experimental learning, portfolio accounting and evidence management into one research system. I direct its development from requirements and planning through implementation, acceptance review and continued refinement.
 
-The research platform has been built and tested. **Consistent profitability has not been proven.** This portfolio shows how I manage a complex software project with ChatGPT and Codex. The application and its trading rules remain private.
+## Engineering scope
 
-## How I work
+![Research scope and historical engineering acceptance with units and context](assets/engineering-scale.svg)
 
-I develop ideas, define requirements and discuss possible solutions with ChatGPT. I give Codex specific implementation tasks, read its reports, ask for checks and decide what to improve next.
+[Evidence provenance and scope](docs/engineering-scale.md) · [Verification](docs/verification.md)
 
-**AI helps write and test the code. I manage the direction, priorities and decisions.** I do not claim to have written the whole system by hand.
+![Connected research workflow](assets/system-map.svg)
 
-![How I work with AI](assets/development-loop.svg)
+## What the platform does
 
-## What we have built
+- **Builds a research opportunity set:** native signals, rejected opportunities and optional exploratory actions, including periods without native signals.
+- **Maintains a continuous virtual portfolio:** competing allocations, costs, capital, positions and risk state carry across chronological research windows.
+- **Connects learning to execution semantics:** model inputs, target definitions and execution assumptions are checked together before reuse.
+- **Investigates position management:** holding, closing, protection changes and partial reductions share the historical accounting path.
+- **Evaluates candidates:** compatible comparisons and admission checks determine whether a candidate proceeds, an incumbent remains or the system abstains.
+- **Recovers verified work:** artifact identities, receipts and checkpoints support restart while preserving completed results.
 
-- A research system covering **nine markets and 21 trading strategies**.
-- Tools to study completed trades, rejected opportunities and situations where strategies gave no signal.
-- Virtual trading that tracks costs, available money and risk.
-- A workflow to train models, compare their results and reject unsuitable versions.
-- Checks for data quality and recovery after interrupted work.
+The engineering challenge is the interaction between these responsibilities. A change in management behavior can change the outcome learned at entry; changing that target can invalidate earlier data and models. [Follow the complete research path](docs/system-walkthrough.md).
 
-The selected private test suites recorded **280 passed, 0 failed and 2 skipped** on 20 October 2026. This checks specific software behavior; it does not prove profitability or cover every possible failure. [What the tests establish](docs/verification.md)
+## Three engineering results
 
-## Three problems we solved
+**Compatible research data.** Historical targets were rebuilt under the current execution contract. The saved audit reconciles records and retains unresolved outcomes explicitly, keeping the meaning of the training data aligned with the executor.
 
-| Problem | Solution and result |
-|---|---|
-| Old research results could be used after calculation rules changed. | Added compatibility checks and rebuilt affected results. Unsuitable old data is blocked. |
-| An interruption could leave uncertainty about whether model training had finished. | Added verified recovery. Completed work can be reused; uncertain files are stopped for review. |
-| A trained model could appear ready without the required evaluation. | Separated training from approval. Missing evidence now prevents admission. |
+**Durable model completion.** Six interruption tests exercise the boundary between training, saving and committing a model. Supported recovery restores the same verified artifact and predictions without repeating a completed fit.
 
-[Read the detailed cases](docs/engineering-case-studies.md)
+**Evidence-based model admission.** Training completion, evaluation and authorization have separate states. Missing or incompatible evidence produces a recorded rejection rather than an unsupported approval.
 
-## Why this project matters
+[Detailed engineering cases](docs/engineering-case-studies.md) · [Architecture and contracts](docs/architecture.md)
 
-It shows how I turn an idea into requirements, coordinate AI-assisted implementation and keep asking for evidence when something goes wrong. These are the skills I want to bring to AI-assisted product development and automation work.
+## Development across interacting systems
 
-The next challenge is to find out whether the models can consistently make useful decisions. A working platform does not guarantee that result.
+The project history includes explicit architecture decisions, maintained component maps, separation of training and reporting, provenance improvements and integration of continuous historical research. Acceptance criteria cover normal behavior and interruption paths. [Engineering scale and development milestones](docs/engineering-scale.md).
 
-**Explore:** [My development process](docs/ai-development-workflow.md) · [Technical architecture](docs/architecture.md) · [Current status](docs/project-status.md) · [Small, safe demo](demo/README.md)
+[Development milestones](docs/engineering-scale.md#development-milestones) · [Development methodology](docs/ai-development-workflow.md).
+
+## Run a public example
+
+The standalone receipt-recovery example demonstrates trusted artifact verification, repeat-safe confirmation and rejection of damaged or conflicting records. It uses synthetic input and the Python standard library.
+
+```sh
+python -B demo/artifact_receipt.py
+python -B -m unittest discover -s demo -p "test_*.py" -v
+```
+
+[Demo guide](demo/README.md) · [Current research status](docs/project-status.md)
+
+TradeBot is a private research implementation with a public engineering showcase. The public example has its own verification scope. Stable trading profitability remains unproven; detailed research and operational boundaries are documented in [verification](docs/verification.md).
+
+## Discuss a software system
+
+The engineering patterns apply to data platforms, long-running workflows and applications that need traceable state and recovery. [Discuss your requirements](mailto:ivan@matiushkin.com) · [More software projects](https://github.com/Hadezu).

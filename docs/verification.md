@@ -25,3 +25,9 @@ Source implementation, full test logs, historical datasets, model files, trading
 - Tested management execution interfaces do not imply that every action has a trained, approved selector.
 
 Public-demo checks and release-file hashes are documented separately in the locally prepared review package. No private evidence needs to be published to run the demo.
+
+## Scope of the presentation refresh
+
+The 20 October 2026 refresh inspected the active local research branch, including uncommitted research changes, instead of relying on the default branch. Source, test definitions and saved acceptance were read; the private application, training and trading runtime were not started.
+
+The 9-market / 21-strategy figures describe a documented research protocol, not profitable markets or production deployments. The overview diagram groups responsibilities; it does not imply six independently deployed services. Newly inspected code is not automatically covered by the saved acceptance. The historical research acceptance also does not close unrelated PAPER runtime accounting issues or establish live readiness.
